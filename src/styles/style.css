@@ -22,13 +22,13 @@
 }
 
 .article {
-    width: 90%;
-    justify-self: center;
+    width: 45%;
     background-color: rgb(159, 159, 159);
     padding: 10px;
     border-radius: 10px;
-    height: fit-content;
-    margin: 0 auto 20px auto;
+    height: 100%;
+    margin-right: 10px;
+    margin-left: 10px;
 }
 
 .rounded-img {
@@ -97,11 +97,26 @@ body, html, #root {
     flex-direction: row;
     justify-content: space-between;
 }
+
+.big-title-div {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 25px;
+}
+
+.big-title-text {
+    color: white;
+    font-weight: bold;
+    font-size: 1.5em;
+}
+
 .list-of-headlines {
     display: flex;
     background-color: transparent;
     flex-direction: column;
-    margin: 15px 15px 15px 20px;
+    margin: 0 15px 15px 15px;
     width: 100%;
 }
 

@@ -4,14 +4,14 @@ import {uncamel} from "../utils/stringUtils";
 
 const Title = ({ sortBy, timeFrame }) => {
 
-    function getTitle() {
+    function renderTitle() {
         return "Most " + uncamel(sortBy) + ' - ' + uncamel(timeFrame)
     }
 
   return (
-      <div className={'title-div'}>
-          <h2 className={'title-text'}>
-            {getTitle()}
+      <div className={'big-title-div'}>
+          <h2 className={'big-title-text'}>
+            {renderTitle()}
           </h2>
       </div>
   );

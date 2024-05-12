@@ -31,46 +31,25 @@ export default function Articles({sortBy, timeFrame, articleLimit, pageNumber}) 
             console.log(e.message)
         }
     }
-
-    function leftArticles(articlesToUse) {
-        const finishedArticles = []
-        for (let i = 0; i < articlesToUse.length; i++) {
-            if (i % 2 === 0) {
-                finishedArticles.push(
-                    <Article index={i} article={articlesToUse[i]}/>
-                )
-            }
-        }
-        return (
-            <div style={{height: '100%', justifyContent: "space-evenly"}} className={'vertDiv'}>
-                {finishedArticles}
-            </div>
-        )
-    }
-
-    function rightArticles(articlesToUse) {
-        const finishedArticles = []
-        for (let i = 0; i < articlesToUse.length; i++) {
-            if (i % 2) {
-                finishedArticles.push(
-                    <Article index={i} article={articlesToUse[i]}/>
-                )
-            }
-        }
-        return (
-            <div style={{height: '100%', justifyContent: "space-evenly"}} className={'vertDiv'}>
-                {finishedArticles}
-            </div>
-        )
-    }
-
     function generateArticles() {
+        const finishedArticles = []
+        let tempArticle; // holds a given row of articles for rendering
         const articlesToUse = [...articleData].slice(pageNumber * 6, articleLimit - (pageNumber * 6)) // ugly pagination lol
-        return (
-            <div style={{height: "fit-content", flexBasis: '100%', justifyContent: 'center'}} className={'horDiv'}>
-                {[leftArticles(articlesToUse), rightArticles(articlesToUse)]}
-            </div>
-        )
+        let count = 0
+
+
+        while ((tempArticle = articlesToUse.splice(0, 2)).length > 0) {
+            let tempPart2 = [] // i need better names for variables
+            for (let i = 0; i < tempArticle.length; i++) {
+                tempPart2.push(<Article index={count++} article={tempArticle[i]}/>)
+            }
+            finishedArticles.push(
+                <div style={{height: "fit-content", margin: '0 0 20px 20px'}} className={'horDiv'}>
+                    {tempPart2}
+                </div>
+            )
+        }
+        return finishedArticles
     }
 
     return (
