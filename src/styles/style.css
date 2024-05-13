@@ -22,8 +22,8 @@
 }
 
 .article {
-    width: 45%;
-    background-color: rgb(159, 159, 159);
+    flex-basis: 100%;
+    background-color: rgb(188, 188, 188);
     padding: 10px;
     border-radius: 10px;
     height: 100%;
@@ -52,19 +52,19 @@ body, html, #root {
 }
 
 @media (max-width: 900px) {
-    #app {
+    #main-content {
         flex-direction: column;
         align-items: center;
     }
 
     .left-white {
-        margin-left: 0px;
-        margin-right: 0px;
+        margin: 0 0 30px 0;
         width: fit-content;
     }
 
     .article {
-        margin: 0 auto 20px auto;
+        width: 100%;
+        height: auto;
     }
 }
 
@@ -120,10 +120,20 @@ body, html, #root {
     width: 100%;
 }
 
+.page-button {
+    color: white;
+    font-weight: bold;
+    padding: 10px;
+    margin: 0 5px 0 5px;
+    border-radius: 5px;
+    border-color: rgba(255, 255, 255, 0.16);
+    background-color: rgba(255, 255, 255, 0.16);
+}
+
 .left-white {
     border-radius: 10px;
-    background-color: white;
-    min-width: 300px;
+    background-color: rgba(255, 255, 255, 0.31);
+    min-width: 250px;
     padding: 30px;
     height: fit-content;
 }
@@ -224,4 +234,13 @@ footer p {
     margin-right: 2rem;
     border: 2px solid #445566; /* Add border */
     border-radius: 5px; /* Add border radius */
+}
+
+.search-button {
+    margin-top: 10px;
+    padding: 3px 10px 3px 10px;
+}
+
+.text-input {
+    padding: 2px;
 }

@@ -11,7 +11,7 @@ const Article = ({ article, index }) => {
             )
         } catch (e) {
             return (
-                <img className="rounded-img" src={require("../public/error.png")}
+                <img className="rounded-img" src={require("../assets/error.png")}
                      alt={"error loading image"}/>
             )
         }
@@ -37,13 +37,13 @@ const Article = ({ article, index }) => {
             return (
                 <div className="article vertDiv">
                     <div className="title-div">
-                        <p className="title-text">{e.message}</p>
-                        <p className="date-text">null</p>
+                        <p className="title-text">Article not available</p>
+                        <p className="date-text">n/a</p>
                     </div>
                     <div className="horDiv">
-                        <img className="rounded-img" src={require("../public/error.png")}
+                        <img className="rounded-img" src={require("../assets/error.png")}
                              alt={"error loading image"}/>
-                        <div className="desc-text">{article.abstract}</div>
+                        <div className="desc-text">{e.message}</div>
                     </div>
                 </div>
             )

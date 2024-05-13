@@ -1,8 +1,7 @@
 import './styles/style.css';
 import Title from "./components/Title";
 import Sidebar from "./components/Sidebar";
-import {useEffect, useState} from "react";
-import Article from "./components/Article";
+import {useState} from "react";
 import Articles from "./components/Articles";
 
 function App() {
@@ -16,9 +15,9 @@ function App() {
       <div className={'back-ground'}>
         <div className="App">
             <Title sortBy={sortBy} timeFrame={timeFrame}/>
-            <div className={'horDiv'}>
+            <div id={'main-content'} className={'horDiv'}>
                 <Sidebar sortBy={sortBy} setSortBy={setSortBy} timeFrame={timeFrame} setArticleLimit={setArticleLimit} articleLimit={articleLimit} setTimeFrame={setTimeFrame}/>
-                <Articles articleLimit={articleLimit} pageNumber={pageNumber} sortBy={sortBy} timeFrame={timeFrame}/>
+                <Articles setPageNumber={setPageNumber} articleLimit={articleLimit} pageNumber={pageNumber} sortBy={sortBy} timeFrame={timeFrame}/>
             </div>
         </div>
       </div>
