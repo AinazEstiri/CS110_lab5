@@ -16,7 +16,7 @@ export default function Articles({sortBy, timeFrame, articleLimit, pageNumber, s
 
     useEffect(() => {
         triggerSearch().then()
-    }, [sortBy, timeFrame]);
+    }, [sortBy, timeFrame, articleLimit]);
 
     async function triggerSearch() {
         try {
@@ -27,7 +27,7 @@ export default function Articles({sortBy, timeFrame, articleLimit, pageNumber, s
                 return
             }
             // for some reason the api now returns 16 results. now force limit to 15
-            setArticleData((await data.json()).results.slice(0, 15))
+            setArticleData((await data.json()).results.slice(0, articleLimit))
         } catch (e) {
             console.log(e.message)
         }
@@ -37,8 +37,8 @@ export default function Articles({sortBy, timeFrame, articleLimit, pageNumber, s
     function generateArticles() {
         const finishedArticles = []
         let tempArticle; // holds a given row of articles for rendering
-        const articlesToUse = [...articleData].slice(pageNumber * articleLimit, (pageNumber * articleLimit) + articleLimit) // ugly pagination lol
-        let count = pageNumber * articleLimit
+        const articlesToUse = [...articleData].slice(pageNumber * 6, (pageNumber * 6) + 6) // ugly pagination lol
+        let count = pageNumber * 6
 
         while ((tempArticle = articlesToUse.splice(0, 2)).length > 0) {
             let tempPart2 = [] // i need better names for variables
@@ -63,7 +63,7 @@ export default function Articles({sortBy, timeFrame, articleLimit, pageNumber, s
 
     function generatePageSelector() {
         const pageSelections = []
-        for (let i = 0; i < (15 / articleLimit); i++) {
+        for (let i = 0; i < (articleLimit / 6); i++) {
             pageSelections.push(
                 <button className={'page-button'} onClick={() => setPageNumber(i)} key={i}>{i + 1}</button>
             )
