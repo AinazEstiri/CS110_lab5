@@ -13,24 +13,24 @@ const Sidebar = ({ sortBy, setSortBy, timeFrame, setTimeFrame, setArticleLimit }
     setTimeFrame(event.target.value);
   };
 
-  function verifyInputValue(event) {
-      if (Number(event.target.value) <= 0) {
+  function verifyInputValue() {
+      if (localLimit <= 0) {
           alert("number is lower than 1\nEnter a number that is within the range of 1-15 inclusive")
           setLocalLimit('')
           return
-      } else if (Number(event.target.value) >= 16) {
+      } else if (Number(localLimit) >= 16) {
           alert("number is higher than 15\nEnter a number that is within the range of 1-15 inclusive")
           setLocalLimit('')
           return
       }
-      setLocalLimit(Number(event.target.value))
+      setArticleLimit(localLimit)
   }
 
   return (
     <div className="left-white">
       <div style={{justifyContent: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
-          <input className={'text-input'} type={"text"} placeholder={'Enter a selection (1-15)'} value={localLimit} onChange={verifyInputValue}/>
-          <button className={'search-button'} onClick={() => {setArticleLimit(localLimit)}}>Search</button>
+          <input className={'text-input'} type={"text"} placeholder={'Enter a selection (1-15)'} value={localLimit} onChange={(event) => setLocalLimit(Number(event.target.value))}/>
+          <button className={'search-button'} onClick={verifyInputValue}>Search</button>
       </div>
       <br/>
       <h3>Sorted By:</h3>
