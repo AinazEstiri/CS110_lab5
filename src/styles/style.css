@@ -22,12 +22,13 @@
 }
 
 .article {
-    width: 80%;
-    background-color: rgb(159, 159, 159);
+    flex-basis: 100%;
+    background-color: rgb(188, 188, 188);
     padding: 10px;
     border-radius: 10px;
-    height: fit-content;
-    margin: 0 0 20px auto;
+    height: 100%;
+    margin-right: 10px;
+    margin-left: 10px;
 }
 
 .rounded-img {
@@ -36,32 +37,34 @@
     width: 100px;
 }
 
-#app {
+body, html, #root {
+    min-height: 100%;
+    background-color: #282c34;
+}
+
+.App {
     font-family: Arial, sans-serif;
     line-height: 1.6;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     padding: 20px;
-    background-color: #282c34;
-    height: 100%;
     width: 100%;
-    justify-content: space-between;
 }
 
 @media (max-width: 900px) {
-    #app {
+    #main-content {
         flex-direction: column;
         align-items: center;
     }
 
     .left-white {
-        margin-left: 0px;
-        margin-right: 0px;
+        margin: 0 0 30px 0;
         width: fit-content;
     }
 
     .article {
-        margin: 0 auto 20px auto;
+        width: 100%;
+        height: auto;
     }
 }
 
@@ -84,8 +87,9 @@
 
 .desc-text {
     margin-left: 10px;
-    font-size: 0.7em;
+    font-size: 0.8em;
     margin-top: 5px;
+    color: #4b4b4b;
 }
 
 .title-div {
@@ -93,18 +97,43 @@
     flex-direction: row;
     justify-content: space-between;
 }
+
+.big-title-div {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 25px;
+}
+
+.big-title-text {
+    color: white;
+    font-weight: bold;
+    font-size: 1.5em;
+}
+
 .list-of-headlines {
     display: flex;
     background-color: transparent;
     flex-direction: column;
-    margin: 15px 15px 15px 20px;
+    margin: 0 15px 15px 15px;
     width: 100%;
+}
+
+.page-button {
+    color: white;
+    font-weight: bold;
+    padding: 10px;
+    margin: 0 5px 0 5px;
+    border-radius: 5px;
+    border-color: rgba(255, 255, 255, 0.16);
+    background-color: rgba(255, 255, 255, 0.16);
 }
 
 .left-white {
     border-radius: 10px;
-    background-color: white;
-    min-width: 300px;
+    background-color: rgba(255, 255, 255, 0.31);
+    min-width: 250px;
     padding: 30px;
     height: fit-content;
 }
@@ -205,4 +234,13 @@ footer p {
     margin-right: 2rem;
     border: 2px solid #445566; /* Add border */
     border-radius: 5px; /* Add border radius */
+}
+
+.search-button {
+    margin-top: 10px;
+    padding: 3px 10px 3px 10px;
+}
+
+.text-input {
+    padding: 2px;
 }
